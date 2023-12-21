@@ -1,101 +1,89 @@
-import React, { useState } from "react";
-import { IoIosSearch } from "react-icons/io";
-import { CiGlobe } from "react-icons/ci";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoPersonCircleSharp } from "react-icons/io5";
-import NavigationData from "./navigationData";
+import React from "react";
+
+import { Header } from "./components/Header";
+import { Navigation } from "./components/Navigation";
+import { AirbnbContainer } from "./components/AirbnbContainer";
 const App: React.FC = () => {
   return (
-    <div className=" px-12">
+    <div className="px-2">
       <Header />
       <Navigation />
-    </div>
-  );
-};
-
-const Header: React.FC = () => {
-  return (
-    <nav className="box-border p-4 flex justify-between w-full items-center border ">
-      <div className="w-[6.5rem] ">
-        <img
-          className="object-fill"
-          alt="Airbnb logo"
-          src="./assets/airbnb-logo.png"
-        />
-      </div>
-      <div className="flex border p-2 px-6 rounded-3xl shadow-md justify-center space-x-3">
-        <p>Anywhere</p>
-        <p>Anyweek</p>
-
-        <p className="text-slate-400">add guest</p>
-
-        <div className="border rounded-full p-2 bg-red-400">
-          <IoIosSearch />
-        </div>
-      </div>
-      <div className="flex space-x-3 items-center justify-self-end">
-        <p>Airbnb your home</p>
-        <p>
-          <CiGlobe />
-        </p>
-        <div className="flex row border shadow-md rounded-full w-16 h-10 items-center justify-around ">
-          <div>
-            <GiHamburgerMenu />
-          </div>
-          <div>
-            <IoPersonCircleSharp />
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-const Navigation: React.FC = () => {
-  return (
-    <div className="flex  w-full ">
-      <div className="w-[90%]">
-        <SwipeIcons icons={NavigationData} />
-      </div>
-
-      <div className="w-[10%]">Filter icon</div>
-    </div>
-  );
-};
-
-//////////
-interface IconData {
-  id: Number;
-  label: string;
-  icon: React.ReactNode;
-}
-interface SwipeIconsProps {
-  icons: IconData[];
-}
-const SwipeIcons: React.FC<SwipeIconsProps> = ({ icons }) => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const visibleIcons = icons.slice(currentIndex, currentIndex + 8);
-  const handleSwipe = (direction: "left" | "right"): void => {
-    const newIndex =
-      direction === "left"
-        ? (currentIndex - 1 + icons.length) % icons.length
-        : (currentIndex + 1) % icons.length;
-    setCurrentIndex(newIndex);
-  };
-  return (
-    <div className="flex  cursor-pointer">
-      <div onClick={() => handleSwipe("left")}>&lt;</div>
-      <div className="flex row">
-        {visibleIcons.map((iconData) => (
-          <div className="">
-            <span className="">{iconData.icon}</span>
-            <span className="text-sm ">{iconData.label}</span>
-          </div>
-        ))}
-      </div>
-      <div onClick={() => handleSwipe("right")}>&gt;</div>
+      <AirbnbContainer />
     </div>
   );
 };
 
 export default App;
+/*
+const KEY = "a72b3bc51cmshf489db3db5ceda7p1ee458jsnaf89471befa4";
+
+const YourComponent = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const url = "https://airbnb13.p.rapidapi.com/search-location";
+        const location = "Paris";
+        const checkin = "2023-09-16";
+        const checkout = "2023-09-17";
+        const adults = 1;
+        const children = 0;
+        const infants = 0;
+        const pets = 0;
+        const page = 1;
+        const currency = "USD";
+
+        const queryParams = new URLSearchParams({
+          location,
+          checkin,
+          checkout,
+          adults: String(adults), // Convert to string
+          children: String(children), // Convert to string
+          infants: String(infants), // Convert to string
+          pets: String(pets), // Convert to string
+          page: String(page), // Convert to string
+          currency,
+        });
+
+        const apiUrl = `${url}?${queryParams?.toString()}`;
+
+        const options = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key": KEY,
+            "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
+          },
+        };
+
+        const response = await fetch(apiUrl, options);
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error("Something went wrong while fetching");
+        }
+
+        setResult(data);
+      } catch (Err) {
+        console.error(Err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []); // empty dependency array means useEffect runs once after initial render
+
+  return (
+    <div>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {result && <pre>{JSON.stringify(result, null, 2)}</pre>}
+    </div>
+  );
+};
+*/
+//Check API Key: Ensure that your RapidAPI key is correct. Double-check for any typos or discrepancies. If you obtained the API key from RapidAPI, make sure it is associated with a valid account and has the necessary permissions.
