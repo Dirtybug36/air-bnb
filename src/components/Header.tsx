@@ -10,9 +10,9 @@ export const Header: React.FC = () => {
     setDropDown((prevState) => !prevState);
   };
   return (
-    //left
-    <nav className="box-border p-4  flex justify-between items-center border ">
-      <div className="w-[6.5rem] justify-start">
+    <nav className="flex justify-between items-center border border-r-0 border-l-0 pb-4 pt-4">
+      {/* left */}
+      <div className="w-[6.5rem] justify-start max-[920px]:hidden">
         <img
           className="object-fill"
           alt="Airbnb logo"
@@ -20,47 +20,38 @@ export const Header: React.FC = () => {
         />
       </div>
       {/* //middle */}
-      <div className="flex border p-2 px-6 rounded-3xl shadow-md  space-x-3">
+      <div className="lg:flex md:flex border p-2 px-6 rounded-3xl shadow-md hover:shadow-lg space-x-3 max-[920px]:flex max-[920px]:w-full max-[920px]:justify-start max-[920px]:mr-16 ">
         <p>Anywhere</p>
+
         <p>Anyweek</p>
 
         <p className="text-slate-400">add guest</p>
 
-        <div className="border rounded-full p-2 bg-red-400">
-          <IoIosSearch className="text-white" />
+        <div className="border rounded-full p-2 bg-red-500 ">
+          <IoIosSearch className="text-white max-[920px]:flex max-[920px]:text-black  " />
         </div>
       </div>
       {/* right */}
-      <div className="flex space-x-3 items-center ">
-        <p>Airbnb your home</p>
-        <p>
-          <CiGlobe />
-        </p>
-
-        {/* <div
-          onClick={() => toggleDropDown}
-          className="flex row border shadow-md rounded-full w-16 h-10 items-center justify-around "
-        >
-          <div>
-            <GiHamburgerMenu />
-          </div>
-          <div>
-            <IoPersonCircleSharp />
-          </div>
-        </div> */}
+      <div className="flex  items-center mr-7  ">
+        <div className="flex row items-center  max-[920px]:hidden ">
+          <p className="px-2 font-medium">Airbnb your home</p>
+          <p>
+            <CiGlobe size={24} />
+          </p>
+        </div>
 
         <div
           onClick={toggleDropDown}
-          className="flex row border shadow-md rounded-full w-16 h-10 items-center justify-around "
+          className="flex row border hover:shadow-md rounded-full px-4 py-3 items-center justify-between "
         >
           <div>
-            <GiHamburgerMenu />
+            <GiHamburgerMenu size={20} />
           </div>
           <div>
-            <IoPersonCircleSharp />
+            <IoPersonCircleSharp size={42} />
           </div>
         </div>
-        <div className=" mt-7">{dropDown && <DropDown />}</div>
+        <div className="mt-7">{dropDown && <DropDown />}</div>
       </div>
     </nav>
   );
