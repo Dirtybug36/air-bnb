@@ -1,20 +1,27 @@
 import React from "react";
+import { HotelDetails } from "./HotelDetails";
 
-//////////
-export const AirbnbContainer: React.FC = () => {
+interface hotelProp {
+  id: string;
+  url: string;
+  images: string[];
+  price: {
+    rate: number;
+    currency: string;
+  };
+  rating: number;
+  reviewsCount: number;
+  address: string;
+}
+
+interface AirbnbContainerProps {
+  hotel: hotelProp[];
+}
+
+export const AirbnbContainer: React.FC<AirbnbContainerProps> = ({ hotel }) => {
   return (
-    <div className="grid-cols-4 gap-10">
-      <div>image</div>
-      <div>
-        <div>
-          <div>Nazare portugal</div>
-          <div>built in 1512</div>
-          <div>date</div>
-          <div>price</div>
-        </div>
-        <div>Star</div>
-        <div>Rating</div>
-      </div>
-    </div>
+    <>
+      <HotelDetails hotel={hotel} />
+    </>
   );
 };
