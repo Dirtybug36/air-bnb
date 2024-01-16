@@ -1,4 +1,61 @@
 import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { FaStar } from "react-icons/fa";
+interface dataProps {
+  id: number;
+  locationImages: {
+    id: number;
+    url: string;
+  }[];
+  location: string;
+  days: string;
+  price: string;
+  isNew: boolean;
+  rating: number;
+}
+
+interface HotelDetailsProps {
+  hotel: dataProps;
+}
+export const HotelDetails: React.FC<HotelDetailsProps> = ({ hotel }) => {
+  const images = hotel.locationImages.map((image) => {
+    return <img alt="bnb" key={image.id} src={image.url} />;
+  });
+
+  return (
+    <div className="flex flex-col my-6 w-[350px]  border-none rounded-2xl relative ">
+      <div className="flex flex-row justify-between absolute z-10">
+        <div>Guest favorite</div>
+        <div>like</div>
+      </div>
+      <div className=" border-none mb-2 object-fill overflow-hidden rounded-2xl  ">
+        <Carousel infiniteLoop autoPlay={false} stopOnHover showThumbs={false}>
+          {images}
+        </Carousel>
+      </div>
+      <div className="flex flex-row justify-between ">
+        <div>
+          <p className="font-bold text-lg">{hotel.location}</p>
+          <p className=" opacity-50">{hotel.days}</p>
+          <p>{hotel.price}</p>
+        </div>
+
+        <div className="flex flex-row gap-1 ">
+          <span>
+            <FaStar size={20} />
+          </span>
+          <span>{hotel.rating} </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// eslint-disable-next-line no-lone-blocks
+{
+  /*
+for rapid api
 interface hotelProp {
   id: string;
   url: string;
@@ -14,37 +71,5 @@ interface hotelProp {
 
 interface HotelDetailsProps {
   hotel: hotelProp[];
+} */
 }
-export const HotelDetails: React.FC<HotelDetailsProps> = ({ hotel }) => {
-  console.log(hotel);
-  // const images = hotel.map(e=>e.images.map())
-  return (
-    <div className="grid grid-cols-4 ml-12">
-      {hotel.map((hotelItems) => (
-        <div
-          key={hotelItems.id}
-          className="flex flex-col border w-[300px] h-[300px] mt-4 rounded-2xl"
-        >
-          <div className=" border-none h-[320px] ">
-            <img
-              className="object-cover h-full w-full rounded-2xl overflow-hidden"
-              src={hotelItems.images[5]}
-              alt="rooms"
-            />
-          </div>
-          <div className="flex flex-row justify-between pl-4 pt-3">
-            <div>
-              <p>{hotelItems.address}</p>
-              <p></p>
-              <p>
-                {hotelItems.price.currency} {hotelItems.price.rate}
-              </p>
-            </div>
-            <div> {hotelItems.rating} </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-//applying carousal effect on image and try that on header too

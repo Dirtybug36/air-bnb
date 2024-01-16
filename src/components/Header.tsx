@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
       {/* left */}
       <div className="w-[6.5rem] justify-start max-[920px]:hidden">
         <img
-          className="object-fill"
+          className="object-fill ml-12"
           alt="Airbnb logo"
           src="./assets/airbnb-logo.png"
         />
@@ -32,9 +32,9 @@ export const Header: React.FC = () => {
         </div>
       </div>
       {/* right */}
-      <div className="flex  items-center mr-7  ">
+      <div className="flex  items-center gap-5 justify-between  ">
         <div className="flex row items-center  max-[920px]:hidden ">
-          <p className="px-2 font-medium">Airbnb your home</p>
+          <p className="px-2  font-bold">Airbnb your home</p>
           <p>
             <CiGlobe size={24} />
           </p>
@@ -42,7 +42,7 @@ export const Header: React.FC = () => {
 
         <div
           onClick={toggleDropDown}
-          className="flex row border hover:shadow-md rounded-full px-4 py-3 items-center justify-between "
+          className="flex row border hover:shadow-md rounded-full mr-4   w-24 h-16  items-center justify-around "
         >
           <div>
             <GiHamburgerMenu size={20} />
@@ -56,7 +56,8 @@ export const Header: React.FC = () => {
     </nav>
   );
 };
-//hove garda shadow, icon alli thulo ani voli mobile resposive just header
+
+//dropwon while cliking personal
 const DropDown: React.FC = () => {
   return (
     <div className="relative inline-block text-left ">
