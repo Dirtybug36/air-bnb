@@ -1,6 +1,6 @@
 import React from "react";
 import { HotelDetails } from "./HotelDetails";
-import CardData from "./CardData";
+import CardData from "../../api/CardData";
 // eslint-disable-next-line no-lone-blocks
 {
   /*
@@ -36,13 +36,13 @@ interface dataProps {
   rating: number;
 }
 
-export const AirbnbContainer: React.FC<{ data: dataProps[] }> = () => {
-  const hotelDetail = CardData.map((hotel: any) => (
+export const AirbnbContainer: React.FC = () => {
+  const hotelDetail = CardData.map((hotel: dataProps) => (
     <HotelDetails key={hotel.id} hotel={hotel} />
   ));
 
   return (
-    <div className="lg:grid lg:grid-cols-4 md:grid md:grid-cols-3 ml-12  sm:grid sm:grid-cols-2 shrink-0">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4  2xl:grid-cols-6 xl:mx-12 lg:mx-12 md:mx-12auto-cols-max sm:mx-12 mx-12 gap-3 ">
       {hotelDetail}
     </div>
   );
