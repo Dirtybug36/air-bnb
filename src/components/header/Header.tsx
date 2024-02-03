@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { CiGlobe } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -31,21 +31,26 @@ export const Header: React.FC<Props> = ({ isScroll }) => {
       </div>
       {/* //middle */}
       {isScroll ? (
-        <div className="lg:flex md:flex sm:flex flex border p-2 lg:ml-6  px-6 rounded-3xl shadow-md hover:shadow-lg space-x-3  cursor-pointer">
+        <div className="lg:flex md:flex ml-10 sm:flex flex border p-2 lg:ml-6  px-6 rounded-3xl shadow-md hover:shadow-lg space-x-3  cursor-pointer ">
           <p>Anywhere</p>
+          {/* vertical line */}
+          <p className="border border-r-1 h-7" />
           <p>Anyweek</p>
-          <p className="text-slate-400">add guest</p>
+          <p className="text-slate-400 hidden">add guest</p>
 
           <div className="border rounded-full p-2 bg-red-500 ">
             <IoIosSearch className="text-white md:flex md:text-black  " />
           </div>
         </div>
       ) : (
-        <div className=" cursor-pointer flex flex-col  ">
+        <div className=" cursor-pointer flex flex-col ml-12 ">
           <div className="flex flex-row justify-center gap-5 ">
             <p className="font-bold">Stays</p>
+
             <p className="text-slate-400">Experience</p>
-            <p className="text-slate-400">Online Experience</p>
+            <p className="text-slate-400 lg:flex 2xl:flex md:flex sm:flex hidden">
+              Online Experience
+            </p>
           </div>
         </div>
       )}

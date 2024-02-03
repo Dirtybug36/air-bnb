@@ -3,7 +3,7 @@ import { RiSoundModuleFill } from "react-icons/ri";
 //later put in separate box
 const Filter = () => {
   return (
-    <div className=" mt-2 flex row border rounded-xl items-center justify-around font-semibold">
+    <div className="px-1 gap-2 flex flex-row border rounded-xl items-center font-semibold">
       <span>
         <RiSoundModuleFill size={26} />
       </span>

@@ -29,11 +29,13 @@ const App: React.FC = () => {
         <Header isScroll={scroll} />
         {!scroll && <ExtraOnHeader />}
 
-        <div className="flex flex-row">
-          <div className="lg:w-[93%] xl:w-[93%]  lg:md-12 md:w-[83%] cursor-pointer   relative my-3">
+        <div className="lg:flex flex-row  md:flex md:flex-row sm:flex sm:flex-row  ">
+          <div className="lg:w-[93%] xl:w-[93%] xl:mx-0 lg:mx-0 sm:w-[85%] md:w-[80%] md:ml-12 sm:ml-12  ml-12 cursor-pointer w-[50]  relative my-3">
             <SlideIcon />
           </div>
-          <Filter />
+          <div className="hidden xl:flex  lg:flex md:flex sm:hidden ">
+            <Filter />
+          </div>
         </div>
       </div>
 

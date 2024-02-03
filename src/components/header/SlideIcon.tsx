@@ -1,5 +1,5 @@
 import NavigationData from "../../api/NavigationData";
-import { RiSoundModuleFill } from "react-icons/ri";
+
 import Slider from "react-slick";
 import { IoIosArrowDropleft } from "react-icons/io";
 import { IoIosArrowDropright } from "react-icons/io";
@@ -7,17 +7,23 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const SampleNextArrow: React.FC = (props) => (
-  <div {...props} className="absolute right-1 top-2  ">
-    <div>
-      <IoIosArrowDropright size={30} />
+  <div
+    {...props}
+    className="absolute right-1 top-0 shadow-xl opacity-10 hover:opacity-50 bg-white"
+  >
+    <div className="bg-white w-full h-full">
+      <IoIosArrowDropright size={31} />
     </div>
   </div>
 );
 
 const SamplePrevArrow: React.FC = (props) => (
-  <div {...props} className="absolute     h-full w-20  rounded-full  ">
-    <div>
-      <IoIosArrowDropleft size={30} />
+  <div
+    {...props}
+    className="absolute  left-0 z-10  text-opacity-20 hover:text-opacity-50   w-11 h-16   text-yellow-950  "
+  >
+    <div className="bg-white w-full h-full ">
+      <IoIosArrowDropleft size={31} />
     </div>
   </div>
 );
@@ -55,8 +61,8 @@ export const SlideIcon: React.FC = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           dots: false,
         },
       },
@@ -66,10 +72,10 @@ export const SlideIcon: React.FC = () => {
   const data = NavigationData.map((icons) => (
     <div
       key={icons.id}
-      className="flex items-center justify-center h-full w-full shrink-0  opacity-50 hover:opacity-100"
+      className="flex items-center justify-center h-full w-full   opacity-50 hover:opacity-100"
     >
       <div>{icons.icon}</div>
-      <div>{icons.label}</div>
+      <div className=" truncate">{icons.label}</div>
     </div>
   ));
   return (
