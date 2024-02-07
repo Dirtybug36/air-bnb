@@ -4,7 +4,7 @@ import { IoIosSearch } from "react-icons/io";
 export const ExtraOnHeader: React.FC = () => {
   return (
     <>
-      <div className="flex  border p-3    rounded-full shadow-md hover:shadow-lg  items-center  justify-around   sm:w-[90%] md:w-[70%] lg:w-[70%] xl:w-[70%] 2xl:w-[70%] m-auto w-[85%]  font-thin ">
+      <div className="flex  border p-3    rounded-full shadow-md hover:shadow-lg  items-center  justify-around   sm:w-[90%] md:w-[70%] lg:w-[70%] xl:w-[70%] 2xl:w-[70%] m-auto w-[85%]  font-thin mb-4">
         <p className="2xl:flex xl:flex md:flex lg:flex sm:flex 2xl:flex-col xl:flex-col md:flex-col sm:flex-col hidden">
           <p className="font-bold">Where</p>
           <p className="text-slate-400">Search destination</p>

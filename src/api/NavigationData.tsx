@@ -22,12 +22,12 @@ import { FaCampground, FaUmbrellaBeach, FaSwimmingPool } from "react-icons/fa";
 import { RiEarthquakeFill } from "react-icons/ri";
 const NavigationData = [
   { id: 1, label: "Design", icon: <MdOutlineApartment size={24} /> },
-  { id: 2, label: "Arctic", icon: <BsSnow size={24} /> },
+  // { id: 2, label: "Arctic", icon: <BsSnow size={24} /> },
   { id: 3, label: "Shared Homes", icon: <MdHouseSiding size={24} /> },
   { id: 4, label: "LakeFront", icon: <MdOutlineWater size={24} /> },
   { id: 5, label: "National Parks", icon: <GiKidSlide size={24} /> },
-  { id: 6, label: "Bed & Breakfast ", icon: <AiOutlineCoffee size={24} /> },
-  { id: 7, label: "OMG!", icon: <GiSpaceNeedle size={24} /> },
+  { id: 6, label: "Breakfast ", icon: <AiOutlineCoffee size={24} /> },
+  // { id: 7, label: "  OMG!", icon: <GiSpaceNeedle size={24} /> },
   { id: 8, label: "Camping", icon: <FaCampground size={24} /> },
   { id: 9, label: "A-frames", icon: <GiCampingTent size={24} /> },
   { id: 10, label: "Domes", icon: <GiLightningDome size={24} /> },

@@ -7,9 +7,15 @@ import { DropDown } from "../modal/DropDown";
 
 interface Props {
   isScroll: boolean;
+
+  onHandleModal: () => void;
 }
 
-export const Header: React.FC<Props> = ({ isScroll }) => {
+export const Header: React.FC<Props> = ({
+  isScroll,
+
+  onHandleModal,
+}) => {
   const [dropDown, setDropDown] = useState<boolean>(false);
   const toggleDropDown = () => {
     setDropDown((prevState) => !prevState);
@@ -75,7 +81,9 @@ export const Header: React.FC<Props> = ({ isScroll }) => {
             <IoPersonCircleSharp size={42} />
           </div>
         </div>
-        <div className="mt-7">{dropDown && <DropDown />}</div>
+        <div className="mt-7">
+          {dropDown && <DropDown onHandleModal={onHandleModal} />}
+        </div>
       </div>
     </nav>
   );

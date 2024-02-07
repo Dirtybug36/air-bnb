@@ -1,30 +1,37 @@
 //dropwon while cliking personal
-export const DropDown: React.FC = () => {
+interface DropDownProps {
+  onHandleModal: () => void;
+}
+export const DropDown: React.FC<DropDownProps> = ({ onHandleModal }) => {
   return (
-    <div className="relative inline-block text-left ">
+    <div className="relative inline-block text-left curser-pointer">
       <div
         className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
       >
-        <div className="py-1" role="none">
-          <a
-            href="/edit"
+        <div
+          className="py-1"
+          role="none"
+          onClick={() => {
+            onHandleModal();
+          }}
+        >
+          <p
             className="text-gray-700 block px-4 py-2 text-sm"
             role="menuitem"
             id="menu-item-0"
           >
             Sign Up
-          </a>
-          <a
-            href="/Duplicate"
+          </p>
+          <p
             className="text-gray-700 block px-4 py-2 text-sm"
             role="menuitem"
-            id="menu-item-1"
+            id="menu-item-0"
           >
-            Login
-          </a>
+            Log in
+          </p>
         </div>
         <div className="py-1" role="none">
           <a

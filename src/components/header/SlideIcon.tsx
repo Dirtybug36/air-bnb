@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 const SampleNextArrow: React.FC = (props) => (
   <div
     {...props}
-    className="absolute right-1 top-0 shadow-xl opacity-10 hover:opacity-50 bg-white"
+    className="absolute right-1 top-0      w-10 h-16 text-opacity-20 hover:text-opacity-50 text-yellow-950 "
   >
     <div className="bg-white w-full h-full">
       <IoIosArrowDropright size={31} />
@@ -72,9 +72,9 @@ export const SlideIcon: React.FC = () => {
   const data = NavigationData.map((icons) => (
     <div
       key={icons.id}
-      className="flex items-center justify-center h-full w-full   opacity-50 hover:opacity-100"
+      className="flex items-center justify-center   h-full w-full   opacity-50 hover:opacity-100"
     >
-      <div>{icons.icon}</div>
+      <div className="  pl-3">{icons.icon}</div>
       <div className=" truncate">{icons.label}</div>
     </div>
   ));

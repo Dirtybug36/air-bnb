@@ -42,7 +42,7 @@ export const AirbnbContainer: React.FC = () => {
   ));
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4  2xl:grid-cols-6 xl:mx-12 lg:mx-12 md:mx-12auto-cols-max sm:mx-12 mx-12 gap-3 ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4  2xl:grid-cols-6 xl:mx-12 lg:mx-12 md:mx-12 auto-cols-max sm:mx-12 mx-12 gap-3 ">
       {hotelDetail}
     </div>
   );

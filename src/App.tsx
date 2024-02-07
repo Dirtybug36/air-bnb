@@ -6,11 +6,15 @@ import { SlideIcon } from "./components/header/SlideIcon";
 import Filter from "./components/header/Filter";
 import { ExtraOnHeader } from "./components/header/ExtraOnHeader";
 import { useEffect, useState } from "react";
+import { Footer } from "./components/Footer";
+import { SignUp } from "./components/modal/SignUp";
 
 const App: React.FC = () => {
-  // const toggleDropDown = () => {
-  //   setDropDown((prevState) => !prevState);
-  // };
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const modalHandler = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
   //shrink header on scroll
   const [scroll, setScroll] = useState<boolean>(false); //state for scroll
 
@@ -24,31 +28,32 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="  font-sans ">
+    <div className={showModal ? " dark:bg-slate-800 " : "  font-sans relative"}>
       <div className="fixed top-0 w-full bg-white z-20 mb-10 border border-r-0 border-l-0 lg:px-12">
-        <Header isScroll={scroll} />
+        <Header isScroll={scroll} onHandleModal={modalHandler} />
         {!scroll && <ExtraOnHeader />}
 
         <div className="lg:flex flex-row  md:flex md:flex-row sm:flex sm:flex-row  ">
-          <div className="lg:w-[93%] xl:w-[93%] xl:mx-0 lg:mx-0 sm:w-[85%] md:w-[80%] md:ml-12 sm:ml-12  ml-12 cursor-pointer w-[50]  relative my-3">
+          <div className="lg:w-[92%] xl:w-[93%] xl:mx-0 lg:mx-0 sm:w-[87%] md:w-[76%] md:ml-12 sm:ml-12  ml-12 cursor-pointer w-[87%]  relative my-3">
             <SlideIcon />
           </div>
-          <div className="hidden xl:flex  lg:flex md:flex sm:hidden ">
+          <div className="hidden xl:flex  lg:flex md:flex sm:hidden h-14 items-center">
             <Filter />
           </div>
         </div>
       </div>
-
+      <div className="absolute m-auto  z-50">{showModal && <SignUp />}</div>
       <AirbnbContainer />
+      <Footer />
     </div>
   );
 };
 
 export default App;
-//make a customizeaable button just see the rating stars
-//try to make the same to box modal may be  for practice
+
 //we will make login
-//favorite button on every photos
+
 //footer
 //when search button is clicked it gets bigger
 //start another project also and switch between those
+//fetch from api and adjust the photos
