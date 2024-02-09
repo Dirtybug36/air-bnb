@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Toaster } from "react-hot-toast";
 import { Header } from "./components/header/Header";
 import { AirbnbContainer } from "./components/main/AirbnbContainer";
 import { SlideIcon } from "./components/header/SlideIcon";
@@ -28,8 +28,9 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className={showModal ? " dark:bg-slate-800 " : "  font-sans relative"}>
+    <div className="  font-sans relative">
       <div className="fixed top-0 w-full bg-white z-20 mb-10 border border-r-0 border-l-0 lg:px-12">
+        <Toaster />
         <Header isScroll={scroll} onHandleModal={modalHandler} />
         {!scroll && <ExtraOnHeader />}
 

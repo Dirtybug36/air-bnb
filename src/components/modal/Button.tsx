@@ -5,5 +5,5 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({ children }) => {
-  return <>{children}</>;
+  return <div className="w-full">{children}</div>;
 };

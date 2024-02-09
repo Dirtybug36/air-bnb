@@ -58,13 +58,13 @@ const SITE_MAP = [
 export const Footer = () => {
   return (
     <footer className="bg-gray-100 border-t border-gray-200 mt-20">
-      <div className="container mt-5 ml-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4">
+      <div className="container mt-5">
+        <div className="grid grid-cols-1 lg:grid-cols-4  ml-12">
           {SITE_MAP.map(({ title, sitemap }, index) => (
             <div
               key={title}
               className={`${
-                index !== 0 && "border-t border-gray-200 lg:border-none"
+                index !== 0 && "border-t border-gray-200 lg:border-none "
               } py-6 md:py-8`}
             >
               <span className="inline-block mb-4 text-sm font-medium">
@@ -84,7 +84,7 @@ export const Footer = () => {
           ))}
         </div>
         <div className="flex flex-col items-center justify-between py-5 text-sm text-gray-400 border-t border-gray-200 lg:py-6 lg:flex-row">
-          <div className="flex flex-col items-center order-last lg:flex-row lg:order-none">
+          <div className="flex flex-col items-center order-last lg:flex-row lg:order-none ml-12">
             <span className="mr-0 text-center lg:mr-4">
               © 2024 Airbnb, Inc.
             </span>
@@ -94,7 +94,7 @@ export const Footer = () => {
                 href="https://buddyportfolio.netlify.app"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-primary hover:underline"
+                className="font-medium text-primary hover:underline "
               >
                 bimarsha basyal
               </a>{" "}
@@ -121,8 +121,8 @@ export const Footer = () => {
               </li>
               <li>
                 <a className="flex items-center" href="/">
-                  <span className="mr-1">$</span>
-                  <span className="underline">USD</span>
+                  <span className="mr-1">€</span>
+                  <span className="underline">EURO</span>
                 </a>
               </li>
             </ul>
