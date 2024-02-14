@@ -6,10 +6,15 @@ import { IoIosArrowDropright } from "react-icons/io";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SampleNextArrow: React.FC = (props) => (
+const SampleNextArrow: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  className,
+  style,
+  onClick,
+}) => (
   <div
-    {...props}
-    className="absolute right-1 top-0      w-10 h-16 text-opacity-20 hover:text-opacity-50 text-yellow-950 "
+    style={style}
+    onClick={onClick}
+    className={`absolute right-1 top-0      w-10 h-16 text-opacity-20 hover:text-opacity-50 text-yellow-950 `}
   >
     <div className="bg-white w-full h-full">
       <IoIosArrowDropright size={31} />
@@ -17,10 +22,15 @@ const SampleNextArrow: React.FC = (props) => (
   </div>
 );
 
-const SamplePrevArrow: React.FC = (props) => (
+const SamplePrevArrow: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  className,
+  style,
+  onClick,
+}) => (
   <div
-    {...props}
-    className="absolute  left-0 z-10  text-opacity-20 hover:text-opacity-50   w-11 h-16   text-yellow-950  "
+    style={style}
+    onClick={onClick}
+    className={`absolute  left-0 z-10  text-opacity-20 hover:text-opacity-50   w-11 h-16   text-yellow-950  `}
   >
     <div className="bg-white w-full h-full ">
       <IoIosArrowDropleft size={31} />

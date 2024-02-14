@@ -83,7 +83,7 @@ export const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col items-center justify-between py-5 text-sm text-gray-400 border-t border-gray-200 lg:py-6 lg:flex-row">
+        <div className="flex flex-col   items-center justify-between py-5 text-sm text-gray-400 border-t border-gray-200 lg:py-6 lg:flex-row">
           <div className="flex flex-col items-center order-last lg:flex-row lg:order-none ml-12">
             <span className="mr-0 text-center lg:mr-4">
               © 2024 Airbnb, Inc.

@@ -1,8 +1,9 @@
-//dropwon while cliking personal
+//dropdown while clicking personal
+
 interface DropDownProps {
-  onHandleModal: () => void;
+  onOpen: () => void;
 }
-export const DropDown: React.FC<DropDownProps> = ({ onHandleModal }) => {
+export const DropDown: React.FC<DropDownProps> = ({ onOpen }) => {
   return (
     <div className="relative inline-block text-left curser-pointer">
       <div
@@ -11,22 +12,16 @@ export const DropDown: React.FC<DropDownProps> = ({ onHandleModal }) => {
         aria-orientation="vertical"
         aria-labelledby="menu-button"
       >
-        <div
-          className="py-1"
-          role="none"
-          onClick={() => {
-            onHandleModal();
-          }}
-        >
+        <div className="py-1 " role="none" onClick={onOpen}>
           <p
-            className="text-gray-700 block px-4 py-2 text-sm"
+            className="text-gray-700 block px-4 py-2 text-sm "
             role="menuitem"
             id="menu-item-0"
           >
             Sign Up
           </p>
           <p
-            className="text-gray-700 block px-4 py-2 text-sm"
+            className="text-gray-700 block px-4 py-2 text-sm "
             role="menuitem"
             id="menu-item-0"
           >

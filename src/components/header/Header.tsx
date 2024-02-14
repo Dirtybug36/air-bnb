@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoIosSearch } from "react-icons/io";
 import { CiGlobe } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { DropDown } from "../modal/DropDown";
+import { useToggle } from "../customHook/useToggle";
 
 interface Props {
   isScroll: boolean;
 
-  onHandleModal: () => void;
+  onOpen: () => void;
 }
 
-export const Header: React.FC<Props> = ({
-  isScroll,
+export const Header: React.FC<Props> = ({ isScroll, onOpen }) => {
+  const { showModal, toggle } = useToggle();
 
-  onHandleModal,
-}) => {
-  const [dropDown, setDropDown] = useState<boolean>(false);
-  const toggleDropDown = () => {
-    setDropDown((prevState) => !prevState);
+  //open modal and close dropdown at a same time
+  const openModal = () => {
+    onOpen();
+    toggle();
   };
-
   return (
     <nav
       className={
@@ -64,15 +63,15 @@ export const Header: React.FC<Props> = ({
       {/* right */}
       <div className="flex  items-center gap-5 justify-between  ">
         <div className="flex row items-center  max-[920px]:hidden ">
-          <p className="px-2  font-bold">Airbnb your home</p>
+          <p className="px-3  font-bold">Airbnb your home</p>
           <p>
             <CiGlobe size={24} />
           </p>
         </div>
 
         <div
-          onClick={toggleDropDown}
-          className="flex row border hover:shadow-md rounded-full mr-4   w-24 h-16  items-center justify-around "
+          className="flex row border hover:shadow-md rounded-full   w-24 h-16  items-center justify-around cursor-pointer "
+          onClick={toggle}
         >
           <div>
             <GiHamburgerMenu size={20} />
@@ -82,7 +81,7 @@ export const Header: React.FC<Props> = ({
           </div>
         </div>
         <div className="mt-7">
-          {dropDown && <DropDown onHandleModal={onHandleModal} />}
+          {showModal && <DropDown onOpen={openModal} />}
         </div>
       </div>
     </nav>

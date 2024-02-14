@@ -1,0 +1,93 @@
+/*
+import React, { useState, useEffect } from "react";
+import { ApiContainer } from "../components/main/ApiContainer";
+interface Hotel {
+  id: string;
+  url: string;
+  images: string[];
+  price: {
+    rate: number;
+    currency: string;
+  };
+  rating: number;
+  reviewsCount: number;
+  address: string;
+}
+const RapidApi = () => {
+  const [hotel, setHotel] = useState<Hotel[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const fetchHotelData = async () => {
+    const url =
+    "https://airbnb13.p.rapidapi.com/search-location?location=lisbon&checkin=2024-11-01&checkout=2024-12-31&adults=1&children=0&infants=0&pets=0&page=1&currency=USD";
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "d9669f48ebmsh195785537f3c951p186385jsnfc1a3b0cbb4b",
+        "X-RapidAPI-Host": "'airbnb13.p.rapidapi.com",
+      },
+    };
+
+    try {
+      setLoading(true);
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(
+          `Failed to fetch data: ${response.status} ${response.statusText}`
+        );
+      }
+      const result = await response.json();
+      console.log(result); // Log the result object
+      setHotel(result.results);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(
+        "An error occurred while fetching data. Please try again later."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const throttledFetchData = throttle(fetchHotelData, 5000); // Adjust throttle limit as needed
+    throttledFetchData();
+    const timeoutId = setTimeout(fetchHotelData, 5000);
+    // Cleanup function
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  const throttle = (func: Function, limit: number) => {
+    let lastFunc: NodeJS.Timeout;
+    let lastRan: number;
+    return function (this: any) {
+      const context = this;
+      const args = arguments;
+      if (!lastRan) {
+        func.apply(context, args);
+        lastRan = Date.now();
+      } else {
+        clearTimeout(lastFunc);
+        lastFunc = setTimeout(function () {
+          if (Date.now() - lastRan >= limit) {
+            func.apply(context, args);
+            lastRan = Date.now();
+          }
+        }, limit - (Date.now() - lastRan));
+      }
+    };
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+  };
+  
+  return <ApiContainer hotels={hotel} />; // Replace with your component's JSX
+};
+*/
